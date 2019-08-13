@@ -1,0 +1,77 @@
+<?xml version="1.0"?>
+<config>
+    <modules>
+        <Angelleye_PaypalBanner>
+            <version>1.0.0</version>
+        </Angelleye_PaypalBanner>
+    </modules>
+    <global>
+        <helpers>
+            <paypalbanner>
+                <class>Angelleye_PaypalBanner_Helper</class>
+            </paypalbanner>
+        </helpers>
+        <blocks>
+            <paypalbanner>
+                <class>Angelleye_PaypalBanner_Block</class>
+            </paypalbanner>
+        </blocks>
+        <models>
+            <paypalbanner>
+                <class>Angelleye_PaypalBanner_Model</class>
+            </paypalbanner>
+			<paypal>
+				<rewrite>
+					<config>Angelleye_PaypalBanner_Model_Config</config>
+				</rewrite>
+			</paypal>
+        </models>
+        <events>
+            <controller_action_layout_generate_xml_before>
+                <observers>
+                    <angelleye_paypalbanner>
+                        <class>paypalbanner/observer</class>
+                        <method>layoutGenerateBlocksBefore</method>
+                    </angelleye_paypalbanner>
+                </observers>
+            </controller_action_layout_generate_xml_before>
+        </events>
+    </global>
+    <frontend>
+        <layout>
+            <updates>
+                <paypalbanner module="Angelleye_Paypalbanner">
+                    <file>paypalbanner.xml</file>
+                </paypalbanner>
+            </updates>
+        </layout>
+    </frontend>
+    <default>
+        <paypalbanner>
+            <settings>
+                <container><![CDATA[<div style="width: 100%; text-align: center; padding-bottom: 7px ">{container}</div>]]></container>
+            </settings>
+        </paypalbanner>
+    </default>
+    <adminhtml>
+        <acl>
+            <resources>
+                <admin>
+                    <children>
+                        <system>
+                            <children>
+                                <config>
+                                    <children>
+                                        <paypalbanner translate="title" module="paypalbanner">
+                                            <title>PayPal Bill Me Later Banners</title>
+                                        </paypalbanner>
+                                    </children>
+                                </config>
+                            </children>
+                        </system>
+                    </children>
+                </admin>
+            </resources>
+        </acl>
+    </adminhtml>
+</config>

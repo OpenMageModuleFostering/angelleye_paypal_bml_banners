@@ -1,22 +1,18 @@
 <?xml version="1.0"?>
 <package>
     <name>Angelleye_PayPal_BML_Banners</name>
-    <version>1.0.1</version>
+    <version>1.0.2</version>
     <stability>stable</stability>
-    <license uri="http://opensource.org/licenses/osl-3.0.php">OSL</license>
+    <license uri="http://opensource.org/licenses/osl-3.0.php">OSL v3.0</license>
     <channel>community</channel>
     <extends/>
-    <summary>Easily add PayPal Bill Me Later banners to your home page, category pages, product pages, and shopping cart.</summary>
-    <description>Bill Me Later is a PayPal service that lets your customers buy now and pay later with a credit line that's built into their PayPal account. Bill Me Later is subject to credit approval and offered through WebBank, Salt Lake City, Utah. Think of it as instant and reusable credit at the point of sale. Bill Me Later is available as a payment option in select PayPal products. Read more about Eligibility to find out if Bill Me Later is part of your payment solution. &#xD;
-&#xD;
-If you're already using one of the eligible PayPal products you may use this module to advertise the Bill Me Later financing option on your website. Studies have shown that Bill Me Later drives a 75% lift in average order value (compared with overall order value.)&#xD;
-&#xD;
-The module will give you the ability to easily add a PayPal Bill Me Later promotional banner to your home page, category pages, product detail pages, and your shopping cart. You can choose to display the banner at the top or bottom of your content area or a side bar, and you can choose from variety of banner sizes.</description>
-    <notes>Added missing template file.</notes>
+    <summary>Easily add PayPal Bill Me Later financing promotional banners to your Magento site.</summary>
+    <description>The module will give you the ability to easily add a PayPal Bill Me Later promotional banner ads (financing offers) to your home page, category pages, product detail pages, and your shopping cart.</description>
+    <notes>Improved user experience for configuring the extension.</notes>
     <authors><author><name>Angell EYE, LLC</name><user>angelleye</user><email>andrew@angelleye.com</email></author></authors>
-    <date>2013-04-11</date>
-    <time>16:44:17</time>
-    <contents><target name="magecommunity"><dir name="Angelleye"><dir name="PaypalBanner"><dir name="Block"><file name="Banner.php" hash="c1d46299ee0f006972d9b03f09469d32"/></dir><dir name="Helper"><file name="Data.php" hash="fb16793380d21ca06f4f558b49314d50"/></dir><dir name="Model"><file name="Config.php" hash="280d4f1bdcd5793c6be4bcb7a09d3a04"/><file name="Observer.php" hash="3e598f4cd6029a405fb72c31ec977317"/><dir name="System"><dir name="Config"><file name="Position.php" hash="414a7e9017f72ca2f230742cbc8abd6b"/><file name="Size.php" hash="a75fab8643bbbb2f41b1703dd6d2487a"/></dir></dir></dir><dir name="etc"><file name="config.xml" hash="cd5c806be56d8687e723e413e67ad160"/><file name="system.xml" hash="84f44ba5c57380272b8ef5efcf5d68be"/></dir></dir></dir></target><target name="mageetc"><dir name="modules"><file name="Angelleye_PaypalBanner.xml" hash="1b360ec01ee752e5958551582a941dd8"/></dir></target><target name="magedesign"><dir name="frontend"><dir name="base"><dir name="default"><dir name="template"><dir name="paypalbanner"><file name="snippet.phtml" hash="d3063b5e653bfa03deb342b4e542ab57"/></dir></dir></dir></dir></dir></target></contents>
+    <date>2013-11-22</date>
+    <time>02:25:07</time>
+    <contents><target name="magecommunity"><dir name="Angelleye"><dir name="PaypalBanner"><dir name="Block"><file name="Banner.php" hash="c1d46299ee0f006972d9b03f09469d32"/><file name="Settings.php" hash="0e74c0d3f55b567391317c36252cef3c"/><dir name="System"><dir name="Field"><file name="Id.php" hash="db22bc4c991021446b601863f379b723"/></dir></dir></dir><dir name="Helper"><file name="Data.php" hash="e7a3afc7b66633e46de1c5d870d7fd91"/></dir><dir name="Model"><file name="Client.php" hash="46d88b3a36986fb4aa92d0f3f836beb1"/><file name="Config.php" hash="280d4f1bdcd5793c6be4bcb7a09d3a04"/><file name="Observer.php" hash="3e598f4cd6029a405fb72c31ec977317"/><dir name="System"><dir name="Config"><file name="Position.php" hash="414a7e9017f72ca2f230742cbc8abd6b"/><file name="Size.php" hash="a75fab8643bbbb2f41b1703dd6d2487a"/></dir></dir></dir><dir name="controllers"><file name="PpbsettingsController.php" hash="53ebc7593b3deb2fbae27c6e3e0ad21b"/><file name="SettingsController.php" hash="0b9129ccb46b7f91826b3099c522dff6"/></dir><dir name="etc"><file name="config.xml" hash="cb2b8aec45482226fd08bc3f87a7229e"/><file name="system.xml" hash="2cef785dea3409a55b8a0264bf7f7054"/></dir><dir name="sql"><dir name="paypalbanner_setup"><file name="mysql4-install-0.0.1.php" hash="dfaec511268382bb65b52fe7e794fff0"/></dir></dir></dir></dir></target><target name="magedesign"><dir name="frontend"><dir name="default"><dir name="default"><dir name="layout"><file name="paypalbanner.xml" hash="78644a669cf4e6aacf858e61d399e81e"/></dir><dir name="template"><dir name="paypalbanner"><file name="settings.phtml" hash="63487b3474eb56e8ac33842dd7016886"/></dir></dir></dir></dir></dir></target><target name="mageetc"><dir name="modules"><file name="Angelleye_PaypalBanner.xml" hash="1b360ec01ee752e5958551582a941dd8"/></dir></target></contents>
     <compatible/>
     <dependencies><required><php><min>5.1.0</min><max>6.0.0</max></php></required></dependencies>
 </package>

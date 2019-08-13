@@ -54,7 +54,7 @@ class Angelleye_PaypalBanner_Helper_Data extends Mage_Core_Helper_Abstract
         $container = Mage::getStoreConfig('paypalbanner/settings/container');
         $size = $this->getSectionConfig()->getSize();
 
-        $snippet  = '<script type="text/javascript" data-pp-pubid="'.$id.'" data-pp-placementtype="'.$size.'">
+        $snippet  = '<script type="text/javascript" data-pp-pubid="'.$id.'" data-pp-placementtype="'.$size.'" data-pp-channel = "Magento Extension" data-pp-td = \'{"d":{"segments": {"cart_price": "'.$this->getCartPrice().'", "item_price":"'.$this->getItemPrice().'","page_name": "'.$this->getPageName().'"}}}\'>
     (function (d, t) {
         "use strict";
         var s = d.getElementsByTagName(t)[0], n = d.createElement(t);
@@ -66,5 +66,65 @@ class Angelleye_PaypalBanner_Helper_Data extends Mage_Core_Helper_Abstract
             $snippet = str_replace('{container}', $snippet, $container);
         }
         return $snippet;
+    }
+
+    /**
+     * Get cart total price
+     * @return string
+     */
+    public  function getCartPrice()
+    {
+        $price = (string)(Mage::helper('checkout/cart')->getQuote()->getGrandTotal()>0 ?
+            Mage::app()->getStore()->formatPrice(
+                Mage::helper('checkout/cart')->getQuote()->getGrandTotal(), false) : '');
+
+         if ($price[0] == '$'){
+             $price = substr($price, 1);
+         }
+         return $price;
+    }
+
+    /**
+     * Get item price (in case customer on product view page)
+     * @return string
+     */
+    public function getItemPrice()
+    {
+        $request = Mage::app()->getRequest();
+        $module = $request->getModuleName();
+        $controller = $request->getControllerName();
+        $action = $request->getActionName();
+        if ($module.$controller.$action == 'catalogproductview'){
+            $prodId = $request->getParam('id');
+            $product = Mage::getModel('catalog/product')->load($prodId);
+            if ($product && $product->getPrice()){
+                $price = (string)Mage::app()->getStore()->formatPrice($product->getPrice(), false);
+            }
+            if ($price[0] == '$'){
+                $price = substr($price, 1);
+            }
+            return $price;
+        }
+        return '';
+    }
+
+    /**
+     * Get page name
+     * @return string
+     */
+    public  function getPageName()
+    {
+        $path = Mage::app()->getRequest()->getOriginalPathInfo();
+        if (empty($path) || $path == '/'){
+            return 'home';
+        } else if ($path[0] == '/' || $path[strlen($path)-1]=='/'){
+            if ($path[0] == '/'){
+                $path = substr($path, 1);
+            }
+            if ($path[strlen($path)-1]=='/'){
+                $path = substr($path, 0, -1);
+            }
+        }
+        return $path;
     }
 }

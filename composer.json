@@ -1,16 +1,19 @@
 {
-    "name": "OpenMageModuleFostering/Angelleye_PayPal_BML_Banners",
+    "name": "OpenMageModuleFostering\/Angelleye_PayPal_BML_Banners",
     "type": "magento-module",
     "license": "OSL-v3.0",
     "homepage": "",
     "description": "Easily add PayPal Bill Me Later financing promotional banners to your Magento site.",
     "authors": [
-    {
-        "name": "Angell EYE, LLC",
-        "email": "andrew@angelleye.com"
-    }
-],
+        {
+            "name": "Angell EYE, LLC",
+            "email": "andrew@angelleye.com"
+        }
+    ],
     "suggest": {
-        "magento-hackathon/magento-composer-installer": "*"
-    }
+        "magento-hackathon\/magento-composer-installer": "*"
+    },
+    "keywords": [
+        "openmage-module"
+    ]
 }
